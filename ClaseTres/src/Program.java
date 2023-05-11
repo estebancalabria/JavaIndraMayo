@@ -111,6 +111,7 @@ public class Program {
 		for (int i=2; i<numero/2; i++) {
 			if ((numero % i)==0) {
 				esPrimo = false;
+				break; //EL lado oscuro de la programacion!
 			}
 		}
 		if (esPrimo) {
