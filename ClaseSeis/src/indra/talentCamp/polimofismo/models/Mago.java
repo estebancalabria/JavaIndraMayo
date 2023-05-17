@@ -19,8 +19,17 @@ public class Mago extends Jugador {
 		System.out.println();
 		
 		if (mana>poderMagico) {
-			enemigo.setFuerza( enemigo.getFuerza() - this.poderMagico);
+			enemigo.setModFuerza(-this.poderMagico);
 	    	this.mana -= poderMagico;
 		}
 	}
+	
+	@Override
+	public void finalizarTurno() {
+		//Este es otro escenario donde en vez de reemplazar el comportamiento lo extiendo
+		super.finalizarTurno();
+		this.mana =+ 1;
+	}
 }
+
+

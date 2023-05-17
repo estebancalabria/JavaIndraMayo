@@ -26,6 +26,8 @@ public class Program {
 		
 		//No quiero que desde afuera me modifiquen los stats de mi personaje
 		//thanos.setHp(0);
+		
+		personajes.forEach(p -> p.finalizarTurno());
 
 		//Fin del turno
 		System.out.println("-----------------");
