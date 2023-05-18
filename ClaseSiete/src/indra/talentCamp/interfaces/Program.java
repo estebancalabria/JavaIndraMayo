@@ -2,6 +2,7 @@ package indra.talentCamp.interfaces;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import indra.talentCamp.generics.*;
 
 
 public class Program {
@@ -13,6 +14,7 @@ public class Program {
         		new Triangulo(12.0, 15.0, 16.36, 16.36),
         		new Rectangulo(10,10),
         		new Planta());
+        
         
         System.out.println("El area total de mi dibujo es...");
         System.out.println("Areas: "+escenario.stream().mapToDouble(figura -> figura.calcularArea()).sum());
@@ -47,6 +49,33 @@ public class Program {
         //System.out.println(figuras.getClass());
         Collections.sort(figuras);
         figuras.forEach(System.out::println);
+        
+        //Ejemplo de uso interfaz funcional
+        OperacionInteger sumaInt = (a,b)->(a+b);
+        int resInt = sumaInt.operar(2, 2);
+        System.out.println("Sumar 2+2 es "+ resInt);
+        
+        Operacion<Integer> suma = (a,b)->(a+b);
+        Integer res = suma.operar(2,2);
+        System.out.println("Sumar 2+2 es "+ res);
+        
+        //Ejemplo Caja Fuerte
+        
+        //Una Caja Fuerte que guarde Strings
+        CajaFuerte<String> claveTexto = new CajaFuerte<>("Abrete Sesamo");
+        claveTexto.guardarValor("La clave del home banking");
+        String claveOk = claveTexto.leerValor("Abrete Sesamo");
+        System.out.println("La clave es: " + claveOk);
+        
+        System.out.println("Intentando acceder con una clave invalida");
+        try {
+        	String claveMal = claveTexto.leerValor("dsdsdsds");
+        }catch(Exception ex) {
+        	System.err.println(ex.getMessage());
+        }
+        
+        //Una caja fuerte que guarde Integers
+        
 	}
 
 }
