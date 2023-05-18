@@ -62,7 +62,7 @@ public class Program {
         //Ejemplo Caja Fuerte
         
         //Una Caja Fuerte que guarde Strings
-        CajaFuerte<String> claveTexto = new CajaFuerte<>("Abrete Sesamo");
+        CajaFuerte<String, String> claveTexto = new CajaFuerte<String, String>("Abrete Sesamo");
         claveTexto.guardarValor("La clave del home banking");
         String claveOk = claveTexto.leerValor("Abrete Sesamo");
         System.out.println("La clave es: " + claveOk);
@@ -75,6 +75,16 @@ public class Program {
         }
         
         //Una caja fuerte que guarde Integers
+        CajaFuerte<Integer, String> claveNumero = new CajaFuerte<Integer, String>("Abrete Sesamo");
+        claveNumero.guardarValor(566);
+        Integer claveNumOk = claveNumero.leerValor("Abrete Sesamo");
+        System.out.println("La clave es: " + claveNumOk);
+        System.out.println("Intentando acceder con una clave invalida");
+        try{
+            Integer claveNumMal = claveNumero.leerValor("Aassdfasdfasdf");
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
         
 	}
 
