@@ -43,5 +43,9 @@ public class Movimiento {
 	public String toString() {
 		return "...";
 	}
+
+	public LocalDate getFecha() {
+		return fecha;
+	}
 	
 }
