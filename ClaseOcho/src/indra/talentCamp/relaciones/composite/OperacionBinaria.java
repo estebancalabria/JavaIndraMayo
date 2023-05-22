@@ -17,12 +17,7 @@ public abstract class OperacionBinaria extends Operacion {
 		this.operandoIzquierdo = new Valor(operandoIzquierdo);
 		this.operandoDerecho = new Valor(operandoDerecho);
 	}
-	
-	public static void me() {
-		int l = Thread.currentThread().getStackTrace().length;
-		System.out.println(Thread.currentThread().getStackTrace()[0].getClassName());
-	}
-	
+		
 	public OperacionBinaria(double operandoIzquierdo, Operacion operandoDerecho) {
 		super();
 		this.operandoIzquierdo = new Valor(operandoIzquierdo);
@@ -34,4 +29,5 @@ public abstract class OperacionBinaria extends Operacion {
 		this.operandoIzquierdo = operandoIzquierdo;
 		this.operandoDerecho = new Valor(operandoDerecho);
 	}	
+
 }

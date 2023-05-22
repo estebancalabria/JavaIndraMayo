@@ -1,13 +1,14 @@
 package indra.talentCamp.relaciones;
 
+import indra.talentCamp.banco.*;
 import indra.talentCamp.relaciones.composite.*;
+import java.util.*;
 import org.mozilla.javascript.*;
 
 public class Program {
 
 	public static void main(String[] args) {
-		
-		Suma.me();
+	
 		
 		//Vamos a realizar el siguiente Calculo
 		// 2+2*3
@@ -57,6 +58,19 @@ public class Program {
 		} finally {
 			Context.exit();
 		}
+		
+		//Ejemplo de como usar colecciones que dejen de poder modificarse en algun momento
+		/*List<String> nombres = new ArrayList<>(); 
+				//Arrays.asList("Juan","Pedro","Ramiro");
+		nombres.add("Juan");
+		nombres.add("Esteban");
+		
+		nombres = Collections.unmodifiableList(nombres);
+		nombres.add("Otro mas");*/
+		
+		/*CuentaBancaria c = new CajaDeAhorro(new Cliente());
+		c.getMovimientos().add(new Movimiento(-1000)); //Estoy permitiendo modificar la coleccion de movimientos desde afuera
+		*/
 		
 	}
 
