@@ -24,7 +24,6 @@ public class App {
 		Persona persona = gson.fromJson(json, Persona.class);
 		System.out.println("El nombre es :" + persona.getNombre());
 		System.out.println("La edad es :" + persona.getEdad());
-		
 	}
 	
 }
