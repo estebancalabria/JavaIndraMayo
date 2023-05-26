@@ -21,7 +21,9 @@ public class BeanFactoryV2 {
 		try {
 			Object result = source.getConstructor().newInstance();
 			
-			List<Dependency> sourceDepedencies = this.dependencies.stream().filter( d -> d.getSource()==source ).toList();
+			List<Dependency> sourceDepedencies = this.dependencies.stream()
+					.filter( d -> d.getSource()==source )
+					.toList();
 			
 			for (Dependency dependency : sourceDepedencies) {
 				Object destinationObject = dependency.getDestination().getConstructor().newInstance();
