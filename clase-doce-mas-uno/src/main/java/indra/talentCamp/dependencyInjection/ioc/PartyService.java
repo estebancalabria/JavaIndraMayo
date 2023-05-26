@@ -10,6 +10,10 @@ public class PartyService {
 		this.repository = repository;
 	}
 	
+	public PartyService(){
+		super();
+	}
+	
 	public void haveFun() {
 		//...
 		System.out.println("Everbody have fun tonight");
