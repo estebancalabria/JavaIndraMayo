@@ -23,4 +23,16 @@ public class AutomovilServiceImplementation implements AutomovilService {
 		return this.repository.findById(55);
 	}
 
+	@Override
+	public void registrarAutomovil(Automovil autoNuevo) {
+		//Supongo que determina que es una marca de autos electicos invocando otra api
+		if (autoNuevo.getMarca().equalsIgnoreCase("Tesla")){
+			autoNuevo.setElectrico(true);
+		}else {
+			autoNuevo.setElectrico(false);
+		}
+				 
+		this.repository.save(autoNuevo);
+	}
+
 }
