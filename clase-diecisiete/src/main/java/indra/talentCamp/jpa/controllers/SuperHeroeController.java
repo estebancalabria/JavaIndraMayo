@@ -1,5 +1,7 @@
 package indra.talentCamp.jpa.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +19,22 @@ public class SuperHeroeController {
 	private SuperHeroeService service;
 	
 	// GET /api/hero  --> Me los lista todos
+	@RequestMapping(value = "/api/hero",  method = RequestMethod.GET) 
+	public ResponseEntity<?>  avengerAssemble(){
+		try {
+			List<SuperHeroe> avengers = this.service.obtenerListaAvengers();
+			return new ResponseEntity<>(avengers, HttpStatus.OK);
+			
+		
+		}catch(BusinessException ex) {
+			return new ResponseEntity<>( ex.getMessage(), 
+					HttpStatus.BAD_REQUEST);
+		}catch(Exception ex) {
+			return new ResponseEntity<>( ex.getMessage(), 
+					HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
 	
 	
 	// POST /api/hero --> Agrego uno nuevo
